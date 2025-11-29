@@ -1,0 +1,47 @@
+[
+  {
+    "id": "news-001",
+    "title": "Hạnh nhân - Cây cầu xây dựng nông nghiệp bền vững",
+    "date": "2024-03-15",
+    "category": "Tin tức",
+    "image": "https://images.unsplash.com/photo-1599599810694-b5ac4dd64971?w=400",
+    "excerpt": "Hợp tác xã Xanh vừa phát động chương trình trồng hạnh nhân để tạo ra một hệ sinh thái nông nghiệp bền vững.",
+    "content": "Chương trình này được phát động nhằm phát triển nông nghiệp bền vững và tạo ra các sản phẩm nông sản chất lượng cao cho cộng đồng."
+  },
+  {
+    "id": "news-002",
+    "title": "Kỷ niệp 8 năm thành lập HTX Nông nghiệp Xanh",
+    "date": "2024-03-10",
+    "category": "Sự kiện",
+    "image": "https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=400",
+    "excerpt": "Hợp tác xã Xanh kỉ niệm 8 năm thành lập với những thành tích đáng tự hào.",
+    "content": "Trong 8 năm qua, HTX đã phục vụ hơn 10.000 hộ nông dân và tạo ra sản phẩm nông sản hữu cơ chất lượng cao được yêu thích trên thị trường."
+  },
+  {
+    "id": "news-003",
+    "title": "Chương trình đào tạo kỹ năng nông nghiệp hữu cơ",
+    "date": "2024-02-28",
+    "category": "Tin tức",
+    "image": "https://images.unsplash.com/photo-1574482620811-1aa16ffe3c82?w=400",
+    "excerpt": "HTX Xanh tổ chức khóa đào tạo miễn phí về kỹ năng trồng trọt nông nghiệp hữu cơ cho 150 nông dân.",
+    "content": "Khóa đào tạo 5 ngày với các chuyên gia nông nghiệp giúp nông dân nắm vững kỹ thuật trồng trọt bền vững."
+  },
+  {
+    "id": "news-004",
+    "title": "Sản phẩm HTX Xanh nhận chứng chỉ hữu cơ quốc tế",
+    "date": "2024-02-20",
+    "category": "Tin tức",
+    "image": "https://images.unsplash.com/photo-1488459716781-6f3ee1e28e00?w=400",
+    "excerpt": "Các sản phẩm rau quả của HTX Xanh vừa nhận được chứng chỉ hữu cơ quốc tế từ tổ chức IFOAM.",
+    "content": "Đây là minh chứng cho cam kết của HTX trong việc sản xuất nông sản hữu cơ chất lượng cao, an toàn cho người tiêu dùng."
+  },
+  {
+    "id": "news-005",
+    "title": "Chương trình bán sỉ cho các nhà hàng, khách sạn",
+    "date": "2024-02-15",
+    "category": "Sự kiện",
+    "image": "https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=400",
+    "excerpt": "HTX Xanh mở chương trình cung cấp sỉ với giá ưu đãi cho các nhà hàng, khách sạn, bệnh viện.",
+    "content": "Với chính sách giá cạnh tranh và chất lượng đảm bảo, HTX sẵn sàng hợp tác dài hạn với các doanh nghiệp."
+  }
+]

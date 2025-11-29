@@ -1,0 +1,39 @@
+[
+  {
+    "title": "Về Hợp tác xã Xanh",
+    "emoji": "🌱",
+    "content": "Hợp tác xã Nông nghiệp Xanh được thành lập vào năm 2015 với mục tiêu phát triển nông nghiệp hữu cơ bền vững. Chúng tôi cam kết cung cấp những sản phẩm tươi ngon, an toàn và có giá trị dinh dưỡng cao cho cộng đồng."
+  },
+  {
+    "title": "Tầm nhìn",
+    "emoji": "👁️",
+    "content": "Trở thành thương hiệu nông sản hữu cơ được tin cậy hàng đầu tại Việt Nam, mang những sản phẩm sạch đến mọi gia đình và góp phần bảo vệ môi trường."
+  },
+  {
+    "title": "Sứ mệnh",
+    "emoji": "🎯",
+    "content": "Phát triển nông nghiệp hữu cơ bền vững, tạo việc làm cho nông dân, cung cấp sản phẩm nông sản an toàn và chất lượng cao, bảo vệ môi trường và sức khỏe cộng đồng."
+  },
+  {
+    "title": "Thành tích nổi bật",
+    "emoji": "🏆",
+    "achievements": [
+      {
+        "label": "Năm hoạt động",
+        "number": "8+"
+      },
+      {
+        "label": "Thành viên",
+        "number": "500+"
+      },
+      {
+        "label": "Hộ nông dân",
+        "number": "10,000+"
+      },
+      {
+        "label": "Sản phẩm",
+        "number": "50+"
+      }
+    ]
+  }
+]

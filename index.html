@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTX Nông nghiệp Xanh - VR360</title>
+
+    <!-- Pannellum VR -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- VR Background -->
+    <div class="vr-background" id="panorama"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="https://baumay.com/templates/images/logo.png" alt="HTX Logo" class="logo-img">
+        </div>
+        <nav class="sidebar-nav">
+            <button class="nav-item active" data-page="products" title="Sản phẩm">
+                <i class="fas fa-leaf"></i>
+            </button>
+            <button class="nav-item" data-page="videos" title="Video">
+                <i class="fas fa-video"></i>
+            </button>
+            <button class="nav-item" data-page="news" title="Tin tức">
+                <i class="fas fa-newspaper"></i>
+            </button>
+            <button class="nav-item" data-page="promotions" title="Khuyến mãi">
+                <i class="fas fa-gift"></i>
+            </button>
+            <button class="nav-item" data-page="about" title="Về chúng tôi">
+                <i class="fas fa-info-circle"></i>
+            </button>
+            <button class="nav-item" data-page="contact" title="Liên hệ">
+                <i class="fas fa-phone"></i>
+            </button>
+        </nav>
+        <div class="sidebar-footer">
+            <button class="cart-btn" id="cartBtn" title="Giỏ hàng">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-badge" id="cartBadge">0</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Content Panel -->
+    <div class="content-panel" id="contentPanel">
+        <div class="panel-header">
+            <h2 id="panelTitle">Sản phẩm</h2>
+            <button class="close-btn" id="closePanel">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="panel-content" id="panelContent"></div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <button class="modal-close" id="cartModalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 style="padding: 20px 40px 0; color: #2c3e50; font-size: 1.5rem; margin-bottom: 20px;">Giỏ hàng</h2>
+            <div class="modal-body" id="cartBody"></div>
+        </div>
+    </div>
+
+    <!-- Scripts - Đúng thứ tự load -->
+    <script src="js/data.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/videos.js"></script>
+    <script src="js/news.js"></script>
+    <script src="js/promotions.js"></script>
+    <script src="js/about.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+</body>
+</html>
