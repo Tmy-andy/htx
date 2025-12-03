@@ -19,38 +19,58 @@
     <!-- VR Background -->
     <div class="vr-background" id="panorama"></div>
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <div class="logo">
-            <img src="https://baumay.com/templates/images/logo.png" alt="HTX Logo" class="logo-img">
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <button class="hamburger-btn" id="hamburgerBtn" title="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-logo">
+                <img src="https://baumay.com/templates/images/logo.png" alt="HTX Logo" class="logo-img">
+                <span class="brand-name">Bầu Mây</span>
+            </div>
         </div>
-        <nav class="sidebar-nav">
-            <button class="nav-item active" data-page="products" title="Sản phẩm">
-                <i class="fas fa-leaf"></i>
+        <div class="nav-center">
+            <button class="nav-item active" data-page="products">
+                <i class="fas fa-leaf"></i> Sản phẩm
             </button>
-            <button class="nav-item" data-page="videos" title="Video">
-                <i class="fas fa-video"></i>
+            <button class="nav-item" data-page="videos">
+                <i class="fas fa-video"></i> Video
             </button>
-            <button class="nav-item" data-page="news" title="Tin tức">
-                <i class="fas fa-newspaper"></i>
+            <button class="nav-item" data-page="news">
+                <i class="fas fa-newspaper"></i> Tin tức
             </button>
-            <button class="nav-item" data-page="promotions" title="Khuyến mãi">
-                <i class="fas fa-gift"></i>
+            <button class="nav-item" data-page="about">
+                <i class="fas fa-info-circle"></i> Về chúng tôi
             </button>
-            <button class="nav-item" data-page="about" title="Về chúng tôi">
-                <i class="fas fa-info-circle"></i>
+            <button class="nav-item" data-page="contact">
+                <i class="fas fa-phone"></i> Liên hệ
             </button>
-            <button class="nav-item" data-page="contact" title="Liên hệ">
-                <i class="fas fa-phone"></i>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <button class="nav-item active" data-page="products">
+                <i class="fas fa-leaf"></i> Sản phẩm
             </button>
-        </nav>
-        <div class="sidebar-footer">
+            <button class="nav-item" data-page="videos">
+                <i class="fas fa-video"></i> Video
+            </button>
+            <button class="nav-item" data-page="news">
+                <i class="fas fa-newspaper"></i> Tin tức
+            </button>
+            <button class="nav-item" data-page="about">
+                <i class="fas fa-info-circle"></i> Về chúng tôi
+            </button>
+            <button class="nav-item" data-page="contact">
+                <i class="fas fa-phone"></i> Liên hệ
+            </button>
+        </div>
+        <div class="nav-right">
             <button class="cart-btn" id="cartBtn" title="Giỏ hàng">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="cart-badge" id="cartBadge">0</span>
             </button>
         </div>
-    </aside>
+    </nav>
 
     <!-- Content Panel -->
     <div class="content-panel" id="contentPanel">
@@ -86,10 +106,10 @@
 
     <!-- Scripts - Đúng thứ tự load -->
     <script src="js/data.js"></script>
+    <script src="js/youtube-helper.js"></script>
     <script src="js/products.js"></script>
     <script src="js/videos.js"></script>
     <script src="js/news.js"></script>
-    <script src="js/promotions.js"></script>
     <script src="js/about.js"></script>
     <script src="js/contact.js"></script>
     <script src="js/cart.js"></script>

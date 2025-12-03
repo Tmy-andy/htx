@@ -655,57 +655,27 @@ const appData = {
     videos: [
         { 
             id: "v1", 
-            title: "Quy Trình Trồng Tiêu Bầu Mây", 
-            thumbnail: "https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=400", 
-            url: "https://www.youtube.com/embed/dQw4w9WgXcQ", 
-            description: "Khám phá quy trình trồng tiêu của Bầu Mây từ gieo hạt đến thu hoạch" 
+            url: "https://www.youtube.com/watch?v=Ajsvp1jyaws"
         },
         { 
             id: "v2", 
-            title: "Hoài Sơn - Thực Phẩm Quý", 
-            thumbnail: "https://images.unsplash.com/photo-1574482620811-1aa16ffe3c82?w=400", 
-            url: "https://www.youtube.com/embed/dQw4w9WgXcQ", 
-            description: "Hoài sơn là thực phẩm bổ dưỡng, giàu vitamin C và chất xơ" 
+            url: "https://www.youtube.com/watch?v=ph6u3yJrpyM"
         },
         { 
             id: "v3", 
-            title: "Lợi Ích Sức Khỏe Của Tiêu", 
-            thumbnail: "https://images.unsplash.com/photo-1599599810694-b5ac4dd64971?w=400", 
-            url: "https://www.youtube.com/embed/dQw4w9WgXcQ", 
-            description: "Tiêu là gia vị lành mạnh, chứa piperine - hợp chất chống oxy hóa" 
+            url: "https://www.youtube.com/watch?v=3UskcX5DtR4"
         },
         { 
             id: "v4", 
-            title: "Chứng Chỉ Chất Lượng Quốc Tế", 
-            thumbnail: "https://images.unsplash.com/photo-1488459716781-6f3ee1e28e00?w=400", 
-            url: "https://www.youtube.com/embed/dQw4w9WgXcQ", 
-            description: "Sản phẩm Bầu Mây đạt tiêu chuẩn ISO 22000:2018 và các chứng chỉ quốc tế" 
+            url: "https://www.youtube.com/watch?v=x_Vw6kUYOV0"
+        },
+        { 
+            id: "v5", 
+            url: "https://www.youtube.com/watch?v=VaOOjcYz-Ng"
+        },
+        { 
+            id: "v6", 
+            url: "https://www.youtube.com/watch?v=6r96DCyR8zs"
         }
     ]
 };
-
-class VideosManager {
-    render() {
-        var content = document.getElementById('panelContent');
-        content.innerHTML = '<div class="videos-grid" id="videosGrid"></div>';
-        var grid = document.getElementById('videosGrid');
-        var html = '';
-        for (var i = 0; i < appData.videos.length; i++) {
-            var v = appData.videos[i];
-            html += '<div class="video-card" onclick="videosManager.playVideo(\'' + v.id + '\')"><div class="video-thumbnail"><img src="' + v.thumbnail + '" alt="' + v.title + '"><div class="play-btn"><i class="fas fa-play"></i></div></div><h3 class="video-title">' + v.title + '</h3><p class="video-description">' + v.description + '</p></div>';
-        }
-        grid.innerHTML = html;
-    }
-
-    playVideo(videoId) {
-        var video = appData.videos.find(function(v) { return v.id === videoId; });
-        if (!video) return;
-        var modal = document.getElementById('productModal');
-        var modalBody = document.getElementById('modalBody');
-        var html = '<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:20px;"><iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;" src="' + video.url + '?autoplay=1" allowfullscreen allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"></iframe></div><h2 class="detail-title">' + video.title + '</h2><p class="detail-description">' + video.description + '</p>';
-        modalBody.innerHTML = html;
-        modal.classList.add('active');
-    }
-}
-
-var videosManager = new VideosManager();
