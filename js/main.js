@@ -8,12 +8,6 @@ function init() {
     setupVRBackground();
     setupModalHandlers();
     
-    setTimeout(() => {
-        if (navigationManager) {
-            navigationManager.navigateTo('products');
-        }
-    }, 700);
-    
     console.log('✓ HTX Nông nghiệp Xanh initialized');
 }
 
