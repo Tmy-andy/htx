@@ -57,6 +57,77 @@ html, body {
     justify-content: space-between;
     padding: 0 30px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+
+.top-nav.collapsed {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.nav-toggle-btn {
+    position: relative;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 1.1rem;
+    width: 45px;
+    height: 45px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+.nav-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+
+.nav-toggle-btn i {
+    transition: transform 0.3s ease;
+}
+
+.top-nav.collapsed + .nav-toggle-floating {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.nav-toggle-floating {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 51;
+    background: var(--primary-color);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 1.2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.nav-toggle-floating:hover {
+    background: var(--primary-dark);
+    transform: scale(1.1) rotate(180deg);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.nav-toggle-floating i {
+    transform: rotate(180deg);
 }
 
 .nav-left {
@@ -117,6 +188,91 @@ html, body {
     background: rgba(255, 255, 255, 0.3);
     color: white;
     font-weight: 600;
+}
+
+/* ============ DROPDOWN MENU ============ */
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-dropdown-toggle {
+    color: rgba(255, 255, 255, 0.85);
+    background: transparent;
+    border: none;
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-dropdown-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 220px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 100;
+    margin-top: 8px;
+}
+
+.nav-dropdown-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-dropdown-menu .nav-item {
+    width: 100%;
+    color: var(--text-dark);
+    background: transparent;
+    border: none;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    border-radius: 0;
+    border-left: 3px solid transparent;
+}
+
+.nav-dropdown-menu .nav-item:first-child {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.nav-dropdown-menu .nav-item:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.nav-dropdown-menu .nav-item:hover {
+    background: rgba(42, 139, 111, 0.1);
+    border-left-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.nav-dropdown-menu .nav-item i {
+    width: 18px;
+    text-align: center;
 }
 
 .nav-right {
@@ -192,67 +348,53 @@ html, body {
 
 /* Cũ cart-btn (không dùng) */
 
+/* ============ CONTENT PANEL - SLIDE FROM BOTTOM ============ */
 .content-panel {
     position: fixed;
-    left: 0;
     bottom: 0;
+    left: 0;
     width: 100%;
     height: calc(100vh - 70px);
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1);
     z-index: 40;
-    display: none;
+    display: flex;
     flex-direction: column;
-    opacity: 0;
     transform: translateY(100%);
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .content-panel.active {
-    display: flex;
-    opacity: 1;
     transform: translateY(0);
-    animation: slideUp 0.4s ease-out;
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(100%);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .panel-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-    background: rgba(42, 139, 111, 0.2);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--text-dark);
+    padding: 15px 20px;
+    background: white;
+    border-bottom: 2px solid rgba(42, 139, 111, 0.1);
+    color: var(--primary-color);
 }
 
 .panel-header h2 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: var(--primary-color);
 }
 
 .close-btn {
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    font-size: 1.3rem;
-    color: var(--text-dark);
+    background: rgba(42, 139, 111, 0.1);
+    border: 1px solid rgba(42, 139, 111, 0.2);
+    font-size: 1.2rem;
+    color: var(--primary-color);
     cursor: pointer;
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     border-radius: 6px;
     display: flex;
     align-items: center;
@@ -261,16 +403,16 @@ html, body {
 }
 
 .close-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.4);
-    transform: scale(1.05);
+    background: rgba(42, 139, 111, 0.2);
+    border-color: rgba(42, 139, 111, 0.3);
+    transform: rotate(90deg);
 }
 
 .panel-content {
     flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 20px 30px;
+    padding: 20px;
     scroll-behavior: smooth;
 }
 
@@ -859,18 +1001,7 @@ html, body {
 
 /* ============ MOBILE NAVBAR ============ */
 .hamburger-btn {
-    display: none;
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 5px 10px;
-    margin-right: 10px;
-}
-
-.hamburger-btn:hover {
-    opacity: 0.8;
+    display: none; /* Ẩn mặc định trên desktop */
 }
 
 .nav-menu {
@@ -879,35 +1010,117 @@ html, body {
     top: 70px;
     left: 0;
     right: 0;
-    background: var(--primary-color);
+    background: white;
     flex-direction: column;
-    padding: 15px 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
     z-index: 49;
     max-height: calc(100vh - 70px);
     overflow-y: auto;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .nav-menu.active {
     display: flex;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .nav-menu .nav-item {
-    padding: 12px 20px;
-    border-left: 3px solid transparent;
-    transition: all 0.2s ease;
+    padding: 18px 25px;
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
     width: 100%;
     text-align: left;
+    color: var(--text-dark);
+    font-size: 1rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    background: white;
+}
+
+.nav-menu .nav-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.nav-menu .nav-item:last-child {
+    border-bottom: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.nav-menu .nav-item i {
+    width: 28px;
+    text-align: center;
+    margin-right: 15px;
+    font-size: 1.15rem;
+    color: var(--primary-color);
 }
 
 .nav-menu .nav-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-left-color: var(--accent-color);
+    background: linear-gradient(90deg, rgba(42, 139, 111, 0.08), transparent);
+    border-left-color: var(--primary-color);
+    color: var(--primary-color);
 }
 
 .nav-menu .nav-item.active {
-    background: rgba(255, 255, 255, 0.15);
-    border-left-color: var(--accent-color);
+    background: linear-gradient(90deg, rgba(42, 139, 111, 0.12), transparent);
+    border-left-color: var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.nav-menu .nav-item.active i {
+    color: var(--primary-color);
+}
+
+/* Animation for menu items */
+.nav-menu.active .nav-item {
+    animation: slideInFromLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 0;
+}
+
+.nav-menu.active .nav-item:nth-child(1) { animation-delay: 0.05s; }
+.nav-menu.active .nav-item:nth-child(2) { animation-delay: 0.08s; }
+.nav-menu.active .nav-item:nth-child(3) { animation-delay: 0.11s; }
+.nav-menu.active .nav-item:nth-child(4) { animation-delay: 0.14s; }
+.nav-menu.active .nav-item:nth-child(5) { animation-delay: 0.17s; }
+.nav-menu.active .nav-item:nth-child(6) { animation-delay: 0.2s; }
+.nav-menu.active .nav-item:nth-child(7) { animation-delay: 0.23s; }
+.nav-menu.active .nav-item:nth-child(8) { animation-delay: 0.26s; }
+.nav-menu.active .nav-item:nth-child(9) { animation-delay: 0.29s; }
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Scrollbar styling */
+.nav-menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.nav-menu::-webkit-scrollbar-track {
+    background: #f5f5f5;
+}
+
+.nav-menu::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+.nav-menu::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
 }
 
 /* ============ RESPONSIVE DESIGN ============ */
@@ -915,6 +1128,25 @@ html, body {
     .top-nav {
         height: 60px;
         padding: 0 15px;
+    }
+
+    .top-nav.collapsed {
+        transform: translateY(-100%);
+    }
+
+    .nav-toggle-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        margin-left: 8px;
+    }
+
+    .nav-toggle-floating {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+        top: 15px;
+        right: 15px;
     }
 
     .nav-left {
@@ -931,15 +1163,46 @@ html, body {
     }
 
     .hamburger-btn {
-        display: block;
+        display: flex;
     }
 
     .nav-center {
         display: none;
     }
 
+    .nav-dropdown {
+        display: none;
+    }
+
     .nav-right {
         flex: 0 0 auto;
+    }
+
+    .hamburger-btn {
+        display: flex; /* Chỉ hiện trên mobile */
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        font-size: 1.3rem;
+        cursor: pointer;
+        padding: 8px 12px;
+        margin-right: 12px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        width: 42px;
+        height: 42px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hamburger-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: scale(1.05);
+    }
+
+    .hamburger-btn:active {
+        transform: scale(0.95);
     }
 
     .cart-btn {
@@ -950,6 +1213,11 @@ html, body {
 
     .nav-menu {
         top: 60px;
+        max-height: calc(100vh - 60px);
+    }
+
+    .nav-menu .nav-item {
+        padding: 14px 20px;
     }
 
     .content-panel {
@@ -977,7 +1245,9 @@ html, body {
     }
 
     .content-panel {
+        width: 100%;
         height: calc(100vh - 55px);
+        top: 55px;
     }
 
     .cart-btn {

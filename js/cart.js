@@ -25,6 +25,27 @@ class CartManager {
         alert(`Đã thêm "${product.name}" vào giỏ hàng!`);
     }
 
+    addSeed(seedId) {
+        const seed = appData.seeds.find(s => s.id === seedId);
+        if (!seed) return;
+
+        const existing = this.cart.find(s => s.id === seedId);
+        if (existing) {
+            existing.quantity++;
+        } else {
+            this.cart.push({
+                id: seed.id,
+                name: seed.name,
+                price: seed.price,
+                quantity: 1
+            });
+        }
+
+        this.saveCart();
+        this.updateBadge();
+        alert(`Đã thêm "${seed.name}" vào giỏ hàng!`);
+    }
+
     removeProduct(productId) {
         this.cart = this.cart.filter(p => p.id !== productId);
         this.saveCart();

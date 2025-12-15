@@ -7,13 +7,66 @@ document.addEventListener('DOMContentLoaded', () => {
 function init() {
     setupVRBackground();
     setupModalHandlers();
+    setupNavbarToggle();
     
     console.log('✓ HTX Nông nghiệp Xanh initialized');
 }
 
+function setupNavbarToggle() {
+    const navbar = document.querySelector('.top-nav');
+    const toggleBtn = document.getElementById('navToggleBtn');
+    const floatingBtn = document.getElementById('navToggleFloating');
+    const contentPanel = document.getElementById('contentPanel');
+    let previousPanelState = null;
+    let previousActivePage = null;
+
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            navbar.classList.add('collapsed');
+            floatingBtn.style.opacity = '1';
+            floatingBtn.style.pointerEvents = 'auto';
+            
+            // Lưu trạng thái panel trước khi đóng
+            if (contentPanel && contentPanel.classList.contains('active')) {
+                previousPanelState = true;
+                const activeNavItem = document.querySelector('.nav-item.active');
+                if (activeNavItem) {
+                    previousActivePage = activeNavItem.getAttribute('data-page');
+                }
+                contentPanel.classList.remove('active');
+                // Reset trạng thái active của nav items
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+            } else {
+                previousPanelState = false;
+            }
+        });
+    }
+
+    if (floatingBtn) {
+        floatingBtn.addEventListener('click', () => {
+            navbar.classList.remove('collapsed');
+            floatingBtn.style.opacity = '0';
+            floatingBtn.style.pointerEvents = 'none';
+            
+            // Khôi phục panel nếu trước đó đang mở
+            if (previousPanelState && previousActivePage && navigationManager) {
+                setTimeout(() => {
+                    navigationManager.navigateTo(previousActivePage);
+                }, 100);
+            }
+        });
+    }
+}
+
+// Biến global để lưu VR viewer
+let mainVRViewer = null;
+
 function setupVRBackground() {
     try {
-        const viewer = pannellum.viewer('panorama', {
+        console.log('=== Setting up main VR viewer ===');
+        mainVRViewer = pannellum.viewer('panorama', {
             type: 'equirectangular',
             panorama: 'https://pannellum.org/images/alma.jpg',
             autoLoad: true,
@@ -29,9 +82,11 @@ function setupVRBackground() {
             minHfov: 50,
             maxHfov: 120
         });
+        window.mainVRViewer = mainVRViewer; // Export to window
         console.log('✓ VR Panorama initialized');
+        console.log('✓ mainVRViewer assigned to window:', !!window.mainVRViewer);
     } catch (error) {
-        console.error('Error initializing VR viewer:', error);
+        console.error('❌ Error initializing VR viewer:', error);
     }
 }
 

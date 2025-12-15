@@ -3,17 +3,27 @@ class NavigationManager {
         this.currentPage = 'products';
         this.managers = {
             products: productsManager,
+            seeds: seedsManager,
             videos: videosManager,
             news: newsManager,
             about: aboutManager,
-            contact: contactManager
+            contact: contactManager,
+            vr_sanxuat: vrAreasManager_sanxuat,
+            vr_chebiendong: vrAreasManager_chebiendong,
+            vr_trungbay: vrAreasManager_trungbay,
+            vr_dieuhanh: vrAreasManager_dieuhanh
         };
         this.pageTitles = {
             products: 'Sản phẩm',
+            seeds: 'Giống tiêu - Củ hoài sơn',
             videos: 'Video',
             news: 'Tin tức',
             about: 'Về chúng tôi',
-            contact: 'Liên hệ'
+            contact: 'Liên hệ',
+            vr_sanxuat: 'Khu Sản Xuất',
+            vr_chebiendong: 'Khu Chế Biến & Đóng Gói',
+            vr_trungbay: 'Khu Trưng Bày',
+            vr_dieuhanh: 'Khu Điều Hành'
         };
         this.init();
     }
@@ -55,7 +65,27 @@ class NavigationManager {
             });
         }
         
-        // Không auto-load, để VR hiển thị khi tải trang
+        // Setup dropdown menu
+        this.setupDropdown();
+    }
+
+    setupDropdown() {
+        const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+        const dropdownMenu = document.querySelector('.nav-dropdown-menu');
+        
+        if (dropdownToggle && dropdownMenu) {
+            dropdownToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdownMenu.classList.toggle('active');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                    dropdownMenu.classList.remove('active');
+                }
+            });
+        }
     }
 
     navigateTo(page) {

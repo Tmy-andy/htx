@@ -625,6 +625,58 @@ const appData = {
         }
     ],
 
+    seeds: [
+        {
+            id: "s1",
+            name: "Giống Tiêu Bầu Mây",
+            category: "Giống Tiêu",
+            image: "https://baumay.com/data/images/1.2%20HINH%20WEB%202.jpg",
+            price: 120000,
+            unit: "cây",
+            description: "Giống tiêu Bầu Mây có bộ rễ cái to gấp 7-10 lần so với các giống tiêu khác, năng suất cao ổn định 9-15 tấn/ha",
+            benefits: "Giống tiêu chất lượng cao, kháng bệnh tốt",
+            details: {
+                specialty: "Giống tiêu duy nhất đạt chuẩn hữu cơ xuất khẩu Quốc tế tại Việt Nam",
+                description: "Giống tiêu Bầu Mây là kết quả hơn 20 năm nghiên cứu và chọn lọc của anh Lâm Ngọc Nhâm. Được chứng nhận đạt chuẩn Quốc tế GlobalG.A.P số GGN: 4059883334760",
+                about: "Cây tiêu có bộ rễ cái rất to khỏe gấp 10 lần giống khác, cắt dây giống ở đâu ra rễ ở đó, tiêu trưởng thành phân bổ mầm đều, chịu được hạn, kháng bệnh tốt, năng suất rất cao từ 10 đến 12 tấn/ha, ổn định qua các năm.",
+                advantages: [
+                    "Bộ rễ cái to gấp 7-10 lần so với các giống tiêu khác",
+                    "Năng suất cao ổn định 9-15 tấn/ha, bền vững qua các năm",
+                    "Kháng bệnh tốt, sinh trưởng mạnh, khác biệt vượt trội",
+                    "Cắt ở đầu ra rễ ở đó - hoàn toàn tự nhiên",
+                    "Hồ tiêu đầu tiên đạt chuẩn hữu cơ xuất khẩu Quốc tế tại Việt Nam"
+                ],
+                awards: "Tiêu Bầu Mây đạt liên tiếp 4 năm liền sản phẩm Nông nghiệp tiêu biểu toàn quốc 2014, 2015, 2016, 2017. Xuất khẩu đi Nhật, Mỹ, Úc, Dubai.",
+                usage: "Liên hệ: 0945 818 389 - 0962 152 257 (Anh Lâm Ngọc Nhâm) để được tư vấn chi tiết về kỹ thuật trồng và chăm sóc",
+                slogan: "Ước Mơ Của Bạn – Hạnh Phúc Bầu Mây"
+            }
+        },
+        {
+            id: "s2",
+            name: "Củ Hoài Sơn Bầu Mây",
+            category: "Củ Hoài Sơn",
+            image: "https://baumay.com/data/product/500/cu-hoai-son-tuoi-bau-may.jpg",
+            price: 150000,
+            unit: "kg",
+            description: "Củ Hoài Sơn Bầu Mây được trồng cộng sinh trên diện tích vườn Tiêu Bầu Mây đạt chuẩn quốc tế hướng hữu cơ",
+            benefits: "Củ hoài sơn hữu cơ, giàu dinh dưỡng",
+            details: {
+                specialty: "Củ Hoài Sơn được chứng nhận đạt chuẩn hữu cơ đầu tiên và duy nhất tại Việt Nam",
+                description: "Mô hình Dự án: Tấc đất tấc vàng nhà nông thu ngay bạc tỷ. Cộng sinh củ Hoài Sơn Bầu Mây trên diện tích vườn Tiêu Bầu Mây đạt chuẩn quốc tế hướng hữu cơ. Mô hình siêu lợi nhuận mang đến sự thịnh vượng cho người nông dân.",
+                about: "Hoài sơn Bầu Mây được trồng theo phương pháp hữu cơ gia truyền qua hơn 16 năm, giàu dinh dưỡng, tốt cho sức khỏe và được bảo quản tốt.",
+                advantages: [
+                    "Trồng cộng sinh với tiêu Bầu Mây đạt chuẩn GlobalG.A.P",
+                    "Đạt chuẩn hữu cơ đầu tiên và duy nhất tại Việt Nam",
+                    "Giàu dinh dưỡng, tốt cho sức khỏe",
+                    "Được trồng theo phương pháp hữu cơ gia truyền"
+                ],
+                certifications: "Chứng nhận đạt chuẩn Quốc tế GlobalG.A.P hướng hữu cơ",
+                usage: "Liên hệ: 0945 818 389 - 0962 152 257 để được tư vấn về kỹ thuật trồng cộng sinh củ Hoài Sơn với Tiêu Bầu Mây",
+                slogan: "Tấc đất tấc vàng nhà nông thu ngay bạc tỷ"
+            }
+        }
+    ],
+
     about: {
         sections: [
             { 
@@ -673,9 +725,107 @@ const appData = {
             id: "v5", 
             url: "https://www.youtube.com/watch?v=VaOOjcYz-Ng"
         },
-        { 
-            id: "v6", 
+        {
+            id: "v6",
             url: "https://www.youtube.com/watch?v=6r96DCyR8zs"
         }
-    ]
+    ],
+
+    // Dữ liệu VR360 cho các khu vực
+    vrAreas: {
+        // KHU SẢN XUẤT
+        sanxuat: {
+            title: "KHU VỰC SẢN XUẤT",
+            color: "#2a8b6f",
+            categories: [
+                {
+                    name: "KHU TRỒNG TRỌT",
+                    items: [
+                        { id: "vr1", name: "Trồng Hoa Màu", url: "https://pannellum.org/images/bma-1.jpg", thumbnail: "https://baumay.com/templates/images/logo.png" },
+                        { id: "vr2", name: "Trồng Dược Liệu", url: "https://pannellum.org/images/cerro-toco-0.jpg", thumbnail: "https://baumay.com/templates/images/logo.png" }
+                    ]
+                },
+                {
+                    name: "KHU CHĂN NUÔI",
+                    items: [
+                        { id: "vr3", name: "Khu Gia Súc", url: "https://pannellum.org/images/jfk.jpg", thumbnail: "https://baumay.com/templates/images/logo.png" },
+                        { id: "vr4", name: "Khu Gia Cầm", url: "https://pannellum.org/images/alma.jpg", thumbnail: "https://baumay.com/templates/images/logo.png" }
+                    ]
+                },
+                {
+                    name: "KHU THỦY SẢN",
+                    items: [
+                        { id: "vr5", name: "Hồ Nuôi Tôm", url: "https://pannellum.org/images/from-tree.jpg", thumbnail: "https://baumay.com/templates/images/logo.png" },
+                        { id: "vr6", name: "Hồ Nuôi Cá Tầm", url: "https://pannellum.org/images/bma-0.jpg", thumbnail: "https://baumay.com/templates/images/logo.png" }
+                    ]
+                }
+            ]
+        },
+
+        // KHU CHẾ BIẾN & ĐÓNG GÓI
+        chebiendong: {
+            title: "CHẾ BIẾN & ĐÓNG GÓI",
+            color: "#2a8b6f",
+            categories: [
+                {
+                    name: "KHU CHẾ BIẾN",
+                    items: [
+                        { id: "vr7", name: "Chế Biến Hoa Màu", url: "https://pannellum.org/images/picnic-1.jpg", thumbnail: "https://baumay.com/templates/images/logo.png" },
+                        { id: "vr8", name: "Chế Biến Dược Liệu", url: "https://pannellum.org/images/cerro-toco-1.jpg", thumbnail: "https://baumay.com/templates/images/logo.png" }
+                    ]
+                },
+                {
+                    name: "KHU ĐÓNG GÓI",
+                    items: [
+                        { id: "vr9", name: "Đóng Gói Nông Sản", url: "https://pannellum.org/images/picnic-2.jpg", thumbnail: "https://baumay.com/templates/images/logo.png" },
+                        { id: "vr10", name: "Đóng Gói Dược Liệu", url: "https://pannellum.org/images/picnic-3.jpg", thumbnail: "https://baumay.com/templates/images/logo.png" }
+                    ]
+                }
+            ]
+        },
+
+        // KHU TRƯNG BÀY
+        trungbay: {
+            title: "KHU VỰC TRƯNG BÀY",
+            color: "#2a8b6f",
+            categories: [
+                {
+                    name: "NÔNG SẢN",
+                    items: [
+                        { id: "vr11", name: "Nông Sản Đóng Gói", url: "https://pannellum.org/images/bma-2.jpg", thumbnail: "https://baumay.com/templates/images/logo.png" },
+                        { id: "vr12", name: "Dược Liệu Đóng Gói", url: "https://pannellum.org/images/bma-3.jpg", thumbnail: "https://baumay.com/templates/images/logo.png" }
+                    ]
+                },
+                {
+                    name: "THỰC PHẨM",
+                    items: [
+                        { id: "vr13", name: "Thực Phẩm Đóng Gói", url: "https://pannellum.org/images/bma-4.jpg", thumbnail: "https://baumay.com/templates/images/logo.png" },
+                        { id: "vr14", name: "Thực Phẩm Đông Hộp", url: "https://pannellum.org/images/bma-5.jpg", thumbnail: "https://baumay.com/templates/images/logo.png" }
+                    ]
+                }
+            ]
+        },
+
+        // KHU ĐIỀU HÀNH
+        dieuhanh: {
+            title: "KHU ĐIỀU HÀNH",
+            color: "#2a8b6f",
+            categories: [
+                {
+                    name: "KHU KỸ THUẬT",
+                    items: [
+                        { id: "vr15", name: "Kỹ Thuật Nông Nghiệp", url: "https://pannellum.org/images/bma-6.jpg", thumbnail: "https://baumay.com/templates/images/logo.png" },
+                        { id: "vr16", name: "Máy Móc Thiết Bị", url: "https://pannellum.org/images/bma-7.jpg", thumbnail: "https://baumay.com/templates/images/logo.png" }
+                    ]
+                },
+                {
+                    name: "KHU VĂN PHÒNG",
+                    items: [
+                        { id: "vr17", name: "Hành Chính & Kế Toán", url: "https://pannellum.org/images/picnic-4.jpg", thumbnail: "https://baumay.com/templates/images/logo.png" },
+                        { id: "vr18", name: "Marketing & Bán Hàng", url: "https://pannellum.org/images/alma.jpg", thumbnail: "https://baumay.com/templates/images/logo.png" }
+                    ]
+                }
+            ]
+        }
+    }
 };
