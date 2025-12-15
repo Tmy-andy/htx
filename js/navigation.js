@@ -37,12 +37,16 @@ class NavigationManager {
         navItems.forEach(item => {
             item.addEventListener('click', () => {
                 const page = item.dataset.page;
-                this.navigateTo(page);
-                // Đóng menu mobile sau khi click
-                if (navMenu.classList.contains('active')) {
-                    navMenu.classList.remove('active');
-                    if (hamburgerBtn) {
-                        hamburgerBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                
+                // Chỉ navigate và đóng menu nếu có data-page
+                if (page) {
+                    this.navigateTo(page);
+                    // Đóng menu mobile sau khi click
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        if (hamburgerBtn) {
+                            hamburgerBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                        }
                     }
                 }
             });
@@ -58,6 +62,23 @@ class NavigationManager {
                 }
             });
         }
+
+        // Setup mobile submenu toggle
+        const mobileParentItems = document.querySelectorAll('.nav-item-parent');
+        mobileParentItems.forEach(parent => {
+            parent.addEventListener('click', (e) => {
+                const toggleId = parent.dataset.toggle;
+                if (toggleId) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    const submenu = document.getElementById(toggleId);
+                    if (submenu) {
+                        parent.classList.toggle('active');
+                        submenu.classList.toggle('active');
+                    }
+                }
+            });
+        });
 
         if (closeBtn) {
             closeBtn.addEventListener('click', () => {

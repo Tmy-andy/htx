@@ -75,41 +75,63 @@
         </div>
         <div class="nav-menu" id="navMenu">
             <button class="nav-item" data-page="about">
-                <i class="fas fa-info-circle"></i> Về chúng tôi
+                <i class="fas fa-info-circle"></i>
+                <span>VỀ CHÚNG TÔI</span>
             </button>
-            <button class="nav-item" data-page="vr_sanxuat">
-                <i class="fas fa-industry"></i> Khu Sản Xuất
-            </button>
-            <button class="nav-item" data-page="vr_chebiendong">
-                <i class="fas fa-boxes"></i> Khu Chế Biến
-            </button>
-            <button class="nav-item" data-page="vr_trungbay">
-                <i class="fas fa-store"></i> Khu Trưng Bày
-            </button>
-            <button class="nav-item" data-page="vr_dieuhanh">
-                <i class="fas fa-building"></i> Khu Điều Hành
-            </button>
+            
+            <!-- Menu cha-con: Các Khu Vực -->
+            <div class="nav-item-group">
+                <button class="nav-item nav-item-parent" data-toggle="vr-areas">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span>CÁC KHU VỰC</span>
+                    <i class="fas fa-chevron-down nav-item-arrow"></i>
+                </button>
+                <div class="nav-submenu" id="vr-areas">
+                    <button class="nav-item nav-item-child" data-page="vr_sanxuat">
+                        <i class="fas fa-industry"></i>
+                        <span>Khu Sản Xuất</span>
+                    </button>
+                    <button class="nav-item nav-item-child" data-page="vr_chebiendong">
+                        <i class="fas fa-boxes"></i>
+                        <span>Khu Chế Biến</span>
+                    </button>
+                    <button class="nav-item nav-item-child" data-page="vr_trungbay">
+                        <i class="fas fa-store"></i>
+                        <span>Khu Trưng Bày</span>
+                    </button>
+                    <button class="nav-item nav-item-child" data-page="vr_dieuhanh">
+                        <i class="fas fa-building"></i>
+                        <span>Khu Điều Hành</span>
+                    </button>
+                </div>
+            </div>
+            
             <button class="nav-item" data-page="products">
-                <i class="fas fa-leaf"></i> Sản phẩm
+                <i class="fas fa-leaf"></i>
+                <span>SẢN PHẨM</span>
             </button>
             <button class="nav-item" data-page="seeds">
-                <i class="fas fa-seedling"></i> Giống tiêu - Củ hoài sơn
+                <i class="fas fa-seedling"></i>
+                <span>GIỐNG TIÊU - CỦ HOÀI SƠN</span>
             </button>
             <button class="nav-item" data-page="videos">
-                <i class="fas fa-video"></i> Video
+                <i class="fas fa-video"></i>
+                <span>VIDEO</span>
             </button>
             <button class="nav-item" data-page="news">
-                <i class="fas fa-newspaper"></i> Tin tức
+                <i class="fas fa-newspaper"></i>
+                <span>TIN TỨC</span>
             </button>
             <button class="nav-item" data-page="contact">
-                <i class="fas fa-phone"></i> Liên hệ
+                <i class="fas fa-phone"></i>
+                <span>LIÊN HỆ</span>
             </button>
         </div>
         <div class="nav-right">
-            <button class="cart-btn" id="cartBtn" title="Giỏ hàng">
+            <!-- <button class="cart-btn" id="cartBtn" title="Giỏ hàng">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="cart-badge" id="cartBadge">0</span>
-            </button>
+            </button> -->
             <button class="nav-toggle-btn" id="navToggleBtn" title="Thu gọn/Mở rộng">
                 <i class="fas fa-chevron-up"></i>
             </button>
@@ -143,7 +165,7 @@
     </div>
 
     <!-- Cart Modal -->
-    <div class="modal" id="cartModal">
+    <!-- <div class="modal" id="cartModal">
         <div class="modal-content">
             <button class="modal-close" id="cartModalClose">
                 <i class="fas fa-times"></i>
@@ -151,7 +173,7 @@
             <h2 style="padding: 20px 40px 0; color: #2c3e50; font-size: 1.5rem; margin-bottom: 20px;">Giỏ hàng</h2>
             <div class="modal-body" id="cartBody"></div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Scripts - Đúng thứ tự load -->
     <script src="js/data.js"></script>
@@ -162,7 +184,7 @@
     <script src="js/news.js"></script>
     <script src="js/about.js"></script>
     <script src="js/contact.js"></script>`n    <script src="js/vrareas.js"></script>
-    <script src="js/cart.js"></script>
+    <!-- <script src="js/cart.js"></script> -->
     <script src="js/main.js"></script>
     <script src="js/navigation.js"></script>
 </body>

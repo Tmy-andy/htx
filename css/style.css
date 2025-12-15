@@ -1031,7 +1031,7 @@ html, body {
     background: white;
     flex-direction: column;
     padding: 0;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     z-index: 49;
     max-height: calc(100vh - 70px);
     overflow-y: auto;
@@ -1046,81 +1046,118 @@ html, body {
     transform: translateY(0);
 }
 
-.nav-menu .nav-item {
-    padding: 18px 25px;
-    border-left: 4px solid transparent;
-    transition: all 0.3s ease;
+.nav-item-group {
     width: 100%;
-    text-align: left;
-    color: var(--text-dark);
-    font-size: 1rem;
-    font-weight: 500;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    position: relative;
-    background: white;
 }
 
-.nav-menu .nav-item:first-child {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+.nav-menu .nav-item {
+    padding: 20px 25px;
+    border: none;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.2s ease;
+    width: 100%;
+    text-align: left;
+    color: #1a1a1a;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    position: relative;
+    background: white;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-menu .nav-item i:first-child {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    width: 20px;
+    text-align: center;
+}
+
+.nav-menu .nav-item span {
+    flex: 1;
+}
+
+.nav-item-arrow {
+    font-size: 0.75rem !important;
+    color: #999 !important;
+    transition: transform 0.3s ease;
+    margin-left: auto;
+    width: auto !important;
+}
+
+.nav-item-parent.active .nav-item-arrow {
+    transform: rotate(180deg);
+    color: var(--primary-color) !important;
+}
+
+.nav-submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: #fafafa;
+}
+
+.nav-submenu.active {
+    max-height: 500px;
+}
+
+.nav-item-child {
+    padding-left: 60px !important;
+    font-size: 0.85rem !important;
+    font-weight: 400 !important;
+    background: #fafafa !important;
+}
+
+.nav-item-child:hover {
+    background: #f0f0f0 !important;
 }
 
 .nav-menu .nav-item:last-child {
     border-bottom: none;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-.nav-menu .nav-item i {
-    width: 28px;
-    text-align: center;
-    margin-right: 15px;
-    font-size: 1.15rem;
-    color: var(--primary-color);
 }
 
 .nav-menu .nav-item:hover {
-    background: linear-gradient(90deg, rgba(42, 139, 111, 0.08), transparent);
-    border-left-color: var(--primary-color);
+    background: #fafafa;
+    color: var(--primary-color);
+}
+
+.nav-menu .nav-item:hover i:first-child {
     color: var(--primary-color);
 }
 
 .nav-menu .nav-item.active {
-    background: linear-gradient(90deg, rgba(42, 139, 111, 0.12), transparent);
-    border-left-color: var(--primary-color);
+    background: #fafafa;
     color: var(--primary-color);
     font-weight: 600;
 }
 
-.nav-menu .nav-item.active i {
+.nav-menu .nav-item.active i:first-child {
     color: var(--primary-color);
 }
 
-/* Animation for menu items */
+/* Remove animations for cleaner look */
 .nav-menu.active .nav-item {
-    animation: slideInFromLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    opacity: 0;
+    opacity: 1;
 }
 
-.nav-menu.active .nav-item:nth-child(1) { animation-delay: 0.05s; }
-.nav-menu.active .nav-item:nth-child(2) { animation-delay: 0.08s; }
-.nav-menu.active .nav-item:nth-child(3) { animation-delay: 0.11s; }
-.nav-menu.active .nav-item:nth-child(4) { animation-delay: 0.14s; }
-.nav-menu.active .nav-item:nth-child(5) { animation-delay: 0.17s; }
-.nav-menu.active .nav-item:nth-child(6) { animation-delay: 0.2s; }
-.nav-menu.active .nav-item:nth-child(7) { animation-delay: 0.23s; }
-.nav-menu.active .nav-item:nth-child(8) { animation-delay: 0.26s; }
-.nav-menu.active .nav-item:nth-child(9) { animation-delay: 0.29s; }
+/* Scrollbar styling - minimal */
+.nav-menu::-webkit-scrollbar {
+    width: 4px;
+}
 
-@keyframes slideInFromLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+.nav-menu::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.nav-menu::-webkit-scrollbar-thumb {
+    background: #e0e0e0;
+    border-radius: 2px;
+}
+
+.nav-menu::-webkit-scrollbar-thumb:hover {
+    background: #ccc;
 }
 
 /* Scrollbar styling */
