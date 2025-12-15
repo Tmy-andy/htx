@@ -143,9 +143,10 @@ html, body {
 }
 
 .nav-logo .logo-img {
-    width: 45px;
-    height: 45px;
+    width: 60px;
+    height: 60px;
     object-fit: contain;
+    padding: 3px;
     filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
 }
 
@@ -270,6 +271,17 @@ html, body {
     color: var(--primary-color);
 }
 
+.nav-dropdown-menu .nav-item.active {
+    background: var(--primary-color);
+    border-left-color: var(--primary-dark);
+    color: white;
+    font-weight: 600;
+}
+
+.nav-dropdown-menu .nav-item.active i {
+    color: white;
+}
+
 .nav-dropdown-menu .nav-item i {
     width: 18px;
     text-align: center;
@@ -326,10 +338,6 @@ html, body {
 }
 
 .logo {
-    display: none !important;
-}
-
-.logo-img {
     display: none !important;
 }
 
@@ -875,7 +883,7 @@ html, body {
     margin-bottom: 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .sidebar {
         width: 80px;
     }
@@ -889,6 +897,16 @@ html, body {
     .contact-section {
         grid-template-columns: 1fr;
         gap: 20px;
+    }
+
+    /* Trang liên hệ - 1 cột trên mobile & tablet */
+    .contact-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    .contact-container {
+        padding: 0 15px !important;
     }
 }
 
@@ -1124,7 +1142,7 @@ html, body {
 }
 
 /* ============ RESPONSIVE DESIGN ============ */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .top-nav {
         height: 60px;
         padding: 0 15px;
@@ -1158,8 +1176,8 @@ html, body {
     }
 
     .nav-logo .logo-img {
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
     }
 
     .hamburger-btn {
@@ -1236,8 +1254,8 @@ html, body {
     }
 
     .nav-logo .logo-img {
-        width: 35px;
-        height: 35px;
+        width: 45px;
+        height: 45px;
     }
 
     .nav-menu {

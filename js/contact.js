@@ -4,9 +4,9 @@
         const info = appData.info;
 
         content.innerHTML = `
-            <div style="width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 20px;">
+            <div class="contact-container" style="width: 100%; max-width: 1400px; margin: 0 auto; padding: 0 20px;">
                 <!-- 2 cột chính: Thông tin liên hệ + Form gửi tin -->
-                <div style="display: grid; grid-template-columns: 1fr 1.3fr; gap: 30px; margin-bottom: 30px;">
+                <div class="contact-grid" style="display: grid; grid-template-columns: 1fr 1.3fr; gap: 30px; margin-bottom: 30px;">
                     
                     <!-- Cột trái: Thông tin liên hệ và Đội hỗ trợ -->
                     <div style="display: flex; flex-direction: column; gap: 20px;">
