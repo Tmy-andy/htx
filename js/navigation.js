@@ -55,6 +55,8 @@ class NavigationManager {
         if (hamburgerBtn) {
             hamburgerBtn.addEventListener('click', () => {
                 navMenu.classList.toggle('active');
+                hamburgerBtn.classList.toggle('active');
+                
                 if (navMenu.classList.contains('active')) {
                     hamburgerBtn.innerHTML = '<i class="fas fa-times"></i>';
                 } else {

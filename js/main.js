@@ -8,8 +8,43 @@ function init() {
     setupVRBackground();
     setupModalHandlers();
     setupNavbarToggle();
+    setupFullscreen();
     
     console.log('✓ HTX Nông nghiệp Xanh initialized');
+}
+
+function setupFullscreen() {
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+    
+    if (fullscreenBtn) {
+        fullscreenBtn.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                // Enter fullscreen
+                document.documentElement.requestFullscreen().then(() => {
+                    fullscreenBtn.innerHTML = '<i class="fas fa-compress"></i>';
+                    fullscreenBtn.title = 'Thoát toàn màn hình';
+                }).catch(err => {
+                    console.error('Error attempting to enable fullscreen:', err);
+                });
+            } else {
+                // Exit fullscreen
+                document.exitFullscreen().then(() => {
+                    fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+                    fullscreenBtn.title = 'Toàn màn hình';
+                }).catch(err => {
+                    console.error('Error attempting to exit fullscreen:', err);
+                });
+            }
+        });
+
+        // Listen for fullscreen change events (e.g., ESC key)
+        document.addEventListener('fullscreenchange', () => {
+            if (!document.fullscreenElement) {
+                fullscreenBtn.innerHTML = '<i class="fas fa-expand"></i>';
+                fullscreenBtn.title = 'Toàn màn hình';
+            }
+        });
+    }
 }
 
 function setupNavbarToggle() {

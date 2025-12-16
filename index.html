@@ -19,17 +19,29 @@
     <!-- VR Background -->
     <div class="vr-background" id="panorama"></div>
 
-    <!-- Top Navigation Bar -->
+    <!-- Logo độc lập - nằm ngoài navbar -->
+    <div class="nav-logo">
+        <img src="assets/imgs/logo.png" alt="HTX Logo" class="logo-img" onerror="console.error('Logo failed to load:', this.src)">
+        <span class="brand-name">Bầu Mây</span>
+    </div>
+
+    <!-- Nút fullscreen -->
+    <button class="fullscreen-btn" id="fullscreenBtn" title="Toàn màn hình">
+        <i class="fas fa-expand"></i>
+    </button>
+
+    <!-- Nút hamburger cho mobile -->
+    <button class="hamburger-btn" id="hamburgerBtn" title="Menu">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Nút thu gọn navbar -->
+    <button class="nav-toggle-btn" id="navToggleBtn" title="Thu gọn navbar">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Top Navigation Bar - chỉ menu giữa màn hình -->
     <nav class="top-nav">
-        <div class="nav-left">
-            <button class="hamburger-btn" id="hamburgerBtn" title="Menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="nav-logo">
-                <img src="assets/imgs/logo.png" alt="HTX Logo" class="logo-img" onerror="console.error('Logo failed to load:', this.src)">
-                <span class="brand-name">Bầu Mây</span>
-            </div>
-        </div>
         <div class="nav-center">
             <button class="nav-item" data-page="about">
                 <i class="fas fa-info-circle"></i> Về chúng tôi
@@ -73,70 +85,57 @@
                 <i class="fas fa-phone"></i> Liên hệ
             </button>
         </div>
-        <div class="nav-menu" id="navMenu">
-            <button class="nav-item" data-page="about">
-                <i class="fas fa-info-circle"></i>
-                <span>VỀ CHÚNG TÔI</span>
-            </button>
-            
-            <!-- Menu cha-con: Các Khu Vực -->
-            <div class="nav-item-group">
-                <button class="nav-item nav-item-parent" data-toggle="vr-areas">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <span>CÁC KHU VỰC</span>
-                    <i class="fas fa-chevron-down nav-item-arrow"></i>
-                </button>
-                <div class="nav-submenu" id="vr-areas">
-                    <button class="nav-item nav-item-child" data-page="vr_sanxuat">
-                        <i class="fas fa-industry"></i>
-                        <span>Khu Sản Xuất</span>
-                    </button>
-                    <button class="nav-item nav-item-child" data-page="vr_chebiendong">
-                        <i class="fas fa-boxes"></i>
-                        <span>Khu Chế Biến</span>
-                    </button>
-                    <button class="nav-item nav-item-child" data-page="vr_trungbay">
-                        <i class="fas fa-store"></i>
-                        <span>Khu Trưng Bày</span>
-                    </button>
-                    <button class="nav-item nav-item-child" data-page="vr_dieuhanh">
-                        <i class="fas fa-building"></i>
-                        <span>Khu Điều Hành</span>
-                    </button>
-                </div>
-            </div>
-            
-            <button class="nav-item" data-page="products">
-                <i class="fas fa-leaf"></i>
-                <span>SẢN PHẨM</span>
-            </button>
-            <button class="nav-item" data-page="seeds">
-                <i class="fas fa-seedling"></i>
-                <span>GIỐNG TIÊU - CỦ HOÀI SƠN</span>
-            </button>
-            <button class="nav-item" data-page="videos">
-                <i class="fas fa-video"></i>
-                <span>VIDEO</span>
-            </button>
-            <button class="nav-item" data-page="news">
-                <i class="fas fa-newspaper"></i>
-                <span>TIN TỨC</span>
-            </button>
-            <button class="nav-item" data-page="contact">
-                <i class="fas fa-phone"></i>
-                <span>LIÊN HỆ</span>
-            </button>
-        </div>
-        <div class="nav-right">
-            <!-- <button class="cart-btn" id="cartBtn" title="Giỏ hàng">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-badge" id="cartBadge">0</span>
-            </button> -->
-            <button class="nav-toggle-btn" id="navToggleBtn" title="Thu gọn/Mở rộng">
-                <i class="fas fa-chevron-up"></i>
-            </button>
-        </div>
     </nav>
+
+    <!-- Mobile Menu - ĐỂ NGOÀI navbar để full màn hình -->
+    <div class="nav-menu" id="navMenu">
+        
+        <button class="nav-item" data-page="about">
+            <span>Về chúng tôi</span>
+        </button>
+        
+        <!-- Menu cha-con: Các Khu Vực -->
+        <div class="nav-item-group">
+            <button class="nav-item nav-item-parent" data-toggle="vr-areas">
+                <span>Các Khu Vực</span>
+                <i class="fas fa-arrow-right nav-item-arrow"></i>
+            </button>
+            <div class="nav-submenu" id="vr-areas">
+                <button class="nav-item nav-item-child" data-page="vr_sanxuat">
+                    <span>Khu Sản Xuất</span>
+                </button>
+                <button class="nav-item nav-item-child" data-page="vr_chebiendong">
+                    <span>Khu Chế Biến</span>
+                </button>
+                <button class="nav-item nav-item-child" data-page="vr_trungbay">
+                    <span>Khu Trưng Bày</span>
+                </button>
+                <button class="nav-item nav-item-child" data-page="vr_dieuhanh">
+                    <span>Khu Điều Hành</span>
+                </button>
+            </div>
+        </div>
+        
+        <button class="nav-item" data-page="products">
+            <span>Sản phẩm</span>
+        </button>
+        
+        <button class="nav-item" data-page="seeds">
+            <span>Giống tiêu - Củ hoài sơn</span>
+        </button>
+        
+        <button class="nav-item" data-page="videos">
+            <span>Video</span>
+        </button>
+        
+        <button class="nav-item" data-page="news">
+            <span>Tin tức</span>
+        </button>
+        
+        <button class="nav-item" data-page="contact">
+            <span>Liên hệ</span>
+        </button>
+    </div>
 
     <!-- Floating Toggle Button (hiện khi navbar collapsed) -->
     <button class="nav-toggle-floating" id="navToggleFloating" title="Mở navbar">
