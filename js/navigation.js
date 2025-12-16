@@ -45,6 +45,7 @@ class NavigationManager {
                     if (navMenu.classList.contains('active')) {
                         navMenu.classList.remove('active');
                         if (hamburgerBtn) {
+                            hamburgerBtn.classList.remove('active');
                             hamburgerBtn.innerHTML = '<i class="fas fa-bars"></i>';
                         }
                     }

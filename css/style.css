@@ -83,6 +83,13 @@ html, body {
     padding: 10px 20px;
     border-radius: 50px;
     border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-logo.hidden {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
 }
 
 .nav-logo .logo-img {
@@ -118,8 +125,14 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-toggle-btn.hidden {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
 }
 
 .nav-toggle-btn:hover {
@@ -141,7 +154,7 @@ html, body {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: var(--text-dark);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -149,8 +162,14 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.fullscreen-btn.hidden {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
 }
 
 .fullscreen-btn:hover {
@@ -199,6 +218,46 @@ html, body {
 
 .nav-toggle-floating i {
     transform: rotate(0deg);
+}
+
+/* Mobile Collapse/Expand Buttons - góc dưới phải */
+.mobile-collapse-btn,
+.mobile-expand-btn {
+    display: none; /* Ẩn trên desktop */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10003;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.mobile-collapse-btn:hover,
+.mobile-expand-btn:hover {
+    background: white;
+    transform: scale(1.1);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-expand-btn {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.mobile-expand-btn.active {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .nav-left {
@@ -427,8 +486,8 @@ html, body {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: calc(100vh - 90px);
-    top: 90px;
+    height: calc(100vh - 95px);
+    top: 95px;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -1099,12 +1158,22 @@ html, body {
     padding: 10px;
     width: 48px;
     height: 48px;
-    transition: transform 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 10001;
+}
+
+.hamburger-btn.hidden {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
 }
 
 .hamburger-btn:hover {
     transform: scale(1.05);
+}
+
+.hamburger-btn.hidden:hover {
+    transform: translateY(-20px); /* Giữ nguyên transform khi hidden */
 }
 
 .hamburger-btn:active {
@@ -1373,9 +1442,25 @@ html, body {
         display: none !important;
     }
 
-    /* Fullscreen button - trong header bar */
-    .fullscreen-btn {
+    /* Floating button cũng ẩn trên mobile */
+    .nav-toggle-floating {
         display: none !important;
+    }
+
+    /* Hiện nút collapse/expand mobile ở góc dưới phải */
+    .mobile-collapse-btn {
+        display: flex !important;
+    }
+
+    .mobile-expand-btn {
+        display: flex !important;
+    }
+
+    /* Fullscreen button - di chuyển xuống góc dưới phải trên mobile */
+    .fullscreen-btn {
+        top: auto;
+        bottom: 20px;
+        right: 85px;
     }
 
     /* Hamburger button - bên phải trong header bar */
@@ -1417,6 +1502,11 @@ html, body {
     .content-panel {
         top: 60px;
         height: calc(100vh - 60px);
+        border-radius: 0;
+    }
+
+    .panel-header {
+        border-radius: 0;
     }
 }
 
@@ -1440,11 +1530,11 @@ html, body {
     }
 
     .fullscreen-btn {
-        top: 10px;
-        right: 10px;
-        width: 42px;
-        height: 42px;
-        font-size: 0.95rem;
+        bottom: 20px;
+        right: 85px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
     }
 
     .content-panel {

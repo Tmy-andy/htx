@@ -51,15 +51,29 @@ function setupNavbarToggle() {
     const navbar = document.querySelector('.top-nav');
     const toggleBtn = document.getElementById('navToggleBtn');
     const floatingBtn = document.getElementById('navToggleFloating');
+    const mobileCollapseBtn = document.getElementById('mobileCollapseBtn');
+    const mobileExpandBtn = document.getElementById('mobileExpandBtn');
     const contentPanel = document.getElementById('contentPanel');
+    const navLogo = document.querySelector('.nav-logo');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
     let previousPanelState = null;
     let previousActivePage = null;
 
+    // Desktop collapse button
     if (toggleBtn) {
         toggleBtn.addEventListener('click', () => {
+            // Ẩn tất cả UI với animation
             navbar.classList.add('collapsed');
-            floatingBtn.style.opacity = '1';
-            floatingBtn.style.pointerEvents = 'auto';
+            if (navLogo) navLogo.classList.add('hidden');
+            if (fullscreenBtn) fullscreenBtn.classList.add('hidden');
+            toggleBtn.classList.add('hidden');
+            
+            // Hiện nút floating
+            setTimeout(() => {
+                floatingBtn.style.opacity = '1';
+                floatingBtn.style.pointerEvents = 'auto';
+            }, 200);
             
             // Lưu trạng thái panel trước khi đóng
             if (contentPanel && contentPanel.classList.contains('active')) {
@@ -79,11 +93,72 @@ function setupNavbarToggle() {
         });
     }
 
+    // Desktop expand button
     if (floatingBtn) {
         floatingBtn.addEventListener('click', () => {
+            // Hiện lại tất cả UI với animation
             navbar.classList.remove('collapsed');
+            if (navLogo) navLogo.classList.remove('hidden');
+            if (fullscreenBtn) fullscreenBtn.classList.remove('hidden');
+            if (toggleBtn) toggleBtn.classList.remove('hidden');
+            
+            // Ẩn nút floating
             floatingBtn.style.opacity = '0';
             floatingBtn.style.pointerEvents = 'none';
+            
+            // Khôi phục panel nếu trước đó đang mở
+            if (previousPanelState && previousActivePage && navigationManager) {
+                setTimeout(() => {
+                    navigationManager.navigateTo(previousActivePage);
+                }, 100);
+            }
+        });
+    }
+
+    // Mobile collapse button
+    if (mobileCollapseBtn) {
+        mobileCollapseBtn.addEventListener('click', () => {
+            // Ẩn logo và hamburger trên mobile
+            if (navLogo) navLogo.classList.add('hidden');
+            if (hamburgerBtn) hamburgerBtn.classList.add('hidden');
+            
+            // Ẩn nút collapse, hiện nút expand
+            mobileCollapseBtn.style.opacity = '0';
+            mobileCollapseBtn.style.pointerEvents = 'none';
+            setTimeout(() => {
+                mobileExpandBtn.classList.add('active');
+            }, 200);
+            
+            // Đóng panel nếu đang mở
+            if (contentPanel && contentPanel.classList.contains('active')) {
+                previousPanelState = true;
+                const activeNavItem = document.querySelector('.nav-item.active');
+                if (activeNavItem) {
+                    previousActivePage = activeNavItem.getAttribute('data-page');
+                }
+                contentPanel.classList.remove('active');
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+            } else {
+                previousPanelState = false;
+            }
+        });
+    }
+
+    // Mobile expand button
+    if (mobileExpandBtn) {
+        mobileExpandBtn.addEventListener('click', () => {
+            // Hiện lại logo và hamburger
+            if (navLogo) navLogo.classList.remove('hidden');
+            if (hamburgerBtn) hamburgerBtn.classList.remove('hidden');
+            
+            // Ẩn nút expand, hiện nút collapse
+            mobileExpandBtn.classList.remove('active');
+            setTimeout(() => {
+                mobileCollapseBtn.style.opacity = '1';
+                mobileCollapseBtn.style.pointerEvents = 'auto';
+            }, 200);
             
             // Khôi phục panel nếu trước đó đang mở
             if (previousPanelState && previousActivePage && navigationManager) {
